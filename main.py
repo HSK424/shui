@@ -117,6 +117,7 @@ def get_ciba():
  
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en,shui):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
+    shui="喝水";
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
     month = localtime().tm_mon
@@ -224,7 +225,7 @@ if __name__ == "__main__":
     weather, temp, wind_dir = get_weather(region)
     note_ch = config["note_ch"]
     note_en = config["note_en"]
-    shui="喝水";
+    
     if note_ch == "" and note_en == "":
         # 获取词霸每日金句
         note_ch, note_en = get_ciba()
